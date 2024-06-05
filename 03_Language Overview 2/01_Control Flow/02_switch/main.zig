@@ -29,3 +29,5 @@ fn arrivalTimeDesc(minutes: u16, is_late: bool) []const u8 {
         },
     }
 }
+// Our switch range used three dots, (3...6). That's because switch cases
+// are inclusive of both numbers.
