@@ -31,8 +31,9 @@ pub fn eql(comptime T: type, a: []const T, b: []const T) bool {
 fn func1() void {
     // for loops can also iterate over ranges, such as:
     for (0..10) |i| {
-        std.debug.print("{d}\n", .{i});
+        std.debug.print("{d} ", .{i});
     }
+    std.debug.print("\n", .{});
 }
 
 // for range uses two dots, (0..10). That's because for is
@@ -88,7 +89,6 @@ fn func3() void {
     var i: usize = 0;
     var escape_count: usize = 0;
 
-    //                  this part
     while (i < src.len) : (i += 1) {
         if (src[i] == '\\') {
             // +1 here, and +1 above == +2
@@ -127,3 +127,15 @@ fn func4() !void {
 
 // Later, when we explore tagged unions, error unions and optional
 // types, we'll see what else these control flow structures have to offer.
+pub fn main() !void {
+    func1();
+    func2();
+    func3();
+    const haystack: [3]u32 = [3]u32{ 1, 2, 3 };
+    std.debug.print("{any}\n", .{contains(&haystack, 5)});
+    const s1 = "danial";
+    const s2 = "danial";
+    std.debug.print("{any}\n", .{eql(u8, s1, s2)});
+    name();
+    std.debug.print("{any}\n", .{indexOf(&haystack, 5)});
+}
