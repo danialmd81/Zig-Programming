@@ -1,3 +1,4 @@
+const std = @import("std");
 // switch is similar to an if/else if/else, but has the advantage of
 // being exhaustive. That is, it's a compile-time error if not all cases
 // are covered. This code will not compile:
@@ -31,3 +32,6 @@ fn arrivalTimeDesc(minutes: u16, is_late: bool) []const u8 {
 }
 // Our switch range used three dots, (3...6). That's because switch cases
 // are inclusive of both numbers.
+pub fn main() !void {
+    std.debug.print("{s}\n{s}\n", .{ anniversaryName(10), arrivalTimeDesc(6, true) });
+}
